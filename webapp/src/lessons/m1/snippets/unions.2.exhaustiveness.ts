@@ -14,10 +14,14 @@ type Bill = {
   totalPrice: number
 }
 
-type CompanyPurchase = Invoice | Bill
+type DebtPayment = { amount: number; due: Date }
+
+type CompanyPurchase = Invoice | Bill | DebtPayment
 
 const getPrice = (purchase: CompanyPurchase): number => {
   // implementation here...
+  if (purchase)
+  purchase
 }
 
 // 🔥 a potem rozszerzamy Unię o trzeci typ, np.

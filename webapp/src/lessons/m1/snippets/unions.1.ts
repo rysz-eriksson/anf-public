@@ -8,6 +8,7 @@ export { }
   type C = { type: "C" }
   type Union = A | B | C
   type PropType = Union['type'] // "A" | "B" | "C"
+  const letter: PropType = "A"
 }
 
 {

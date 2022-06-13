@@ -5,12 +5,12 @@ interface ŁosośNorweski {
   krajPochodzenia: string
 }
 
-function dajMiŁosoś(){
+function dajMiŁosoś(): ŁosośNorweski | undefined {
   var musiByćŁosoś: ŁosośNorweski | undefined
-  // if (!musiByćŁosoś){
-  //   throw new Error('Wrong wrong wrong!')
-  //   // IF branch implicitly continues with never
-  // }
+  if (!musiByćŁosoś){
+    throw new Error('Wrong wrong wrong!')
+    // IF branch implicitly continues with never
+  }
   // // ŁosośNorweski | never -> object
   return musiByćŁosoś // ŁosośNorweski
 }

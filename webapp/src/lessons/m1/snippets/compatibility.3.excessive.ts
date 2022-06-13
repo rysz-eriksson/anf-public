@@ -13,7 +13,7 @@ interface Developer extends Human {
 const john = {
   name: "John",
   languages: ['js', 'ts'],
-  // address: "Liverpool"
+  address: "Liverpool"
 }
 
 const dev: Developer = john

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Money } from 'api/types';
 
 const formatter = new Intl.NumberFormat("pl-PL", {
@@ -13,6 +13,7 @@ interface FormatMoneyProps {
 }
 
 export const FormatMoney: React.FC<FormatMoneyProps> = (props) => {
+  useEffect(() => console.log("render format money"))
   const { amount } = props
   return <>
     {formatter.format(amount)}

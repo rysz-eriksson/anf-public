@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Loader, FormatMoney, Typography } from 'ui/atoms';
 import { CheckboxField } from 'ui/molecules';
@@ -69,9 +69,13 @@ export const EmployeesView: React.FC<EmployeesViewProps> = () => {
 
   const [displaySalarySummaries, setDisplaySalarySummaries] = useState(true)
 
-  const calculateTotalSalary = () => {
+  // usememo or use callback
+  const calculatedTotalSalary = useMemo(() =>
+  {
+    console.log("calculated")
+    console.log(employees.length)
     return employees.reduce((sum, e) => sum + e.salary, 0)
-  }
+  }, [employees])
 
   return (
     <Container>
@@ -96,12 +100,12 @@ export const EmployeesView: React.FC<EmployeesViewProps> = () => {
             </div>
             <SalarySummariesGrid>
               <SalarySummariesCell>Miesięczny koszt pensji:</SalarySummariesCell>
-              <SalarySummariesCell align="right"><FormatMoney amount={calculateTotalSalary()} /></SalarySummariesCell>
+              <SalarySummariesCell align="right"><FormatMoney amount={calculatedTotalSalary} /></SalarySummariesCell>
               {displaySalarySummaries && <>
               <SalarySummariesCell>Kwartalny koszt pensji:</SalarySummariesCell>
-              <SalarySummariesCell align="right"><FormatMoney amount={calculateTotalSalary() * 3} /></SalarySummariesCell>
+              <SalarySummariesCell align="right"><FormatMoney amount={calculatedTotalSalary * 3} /></SalarySummariesCell>
               <SalarySummariesCell>Roczny koszt pensji:</SalarySummariesCell>
-              <SalarySummariesCell align="right"><FormatMoney amount={calculateTotalSalary() * 12} /></SalarySummariesCell>
+              <SalarySummariesCell align="right"><FormatMoney amount={calculatedTotalSalary * 12} /></SalarySummariesCell>
               </>}
             </SalarySummariesGrid>
           </BorderedPanel>

@@ -10,6 +10,7 @@ import { ContactsService } from './contacts.service';
 const svc = new ContactsService(contacts);
 
 import { lessons } from 'stories';
+import { ContactsContainerFn } from './ContactsContainerFn';
 export default {
   title: lessons.m3.add('HOMEWORK').toString(),
   argTypes: {
@@ -19,6 +20,7 @@ export default {
 export const Contacts = () => {
   return <>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossOrigin="anonymous" />
-    <ContactsContainer service={svc} />
+    {/* <ContactsContainer service={svc} /> */}
+    <ContactsContainerFn service={svc} />
   </>
 }

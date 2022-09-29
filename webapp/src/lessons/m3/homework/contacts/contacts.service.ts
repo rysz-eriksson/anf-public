@@ -11,6 +11,7 @@ export class ContactsService {
   ) {}
 
   async getContacts() {
+    console.log("useEffect")
     return this.contacts;
   }
 
